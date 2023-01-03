@@ -2,8 +2,10 @@
 name = "greenmountainpower"
 version = "0.0.3"
 description = ""
-authors = ["Kodey Converse <kodey@conve.rs>"]
+authors = [    "Kodey Converse <kodey@conve.rs>"]
 readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/sbrinkerhoff/greenmountainpower/"
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -13,6 +15,8 @@ oauthlib = "^3"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.0.2"
+black = "^22"
+pytest = "^7.2.0"
 
 [build-system]
 requires = ["poetry>=0.12"]
