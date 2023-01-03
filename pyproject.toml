@@ -1,14 +1,16 @@
 [tool.poetry]
 name = "greenmountainpower"
-version = "0.1.0"
+version = "0.0.3"
 description = ""
 authors = ["Kodey Converse <kodey@conve.rs>"]
 readme = "README.md"
 
-[build-system]
-requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5", "wheel"]
-build-backend = "setuptools.build_meta"
+[tool.poetry.dependencies]
+python = "^3.10"
 
-[tool.setuptools_scm]
-# See configuration details in https://github.com/pypa/setuptools_scm
-version_scheme = "no-guess-dev"
+[tool.poetry.group.dev.dependencies]
+coverage = "^7.0.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
