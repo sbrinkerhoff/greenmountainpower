@@ -7,6 +7,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+requests = "^2"
+requests-oauthlib = "^1"
+oauthlib = "^3"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.0.2"
