@@ -1,6 +1,8 @@
 import dataclasses
 import datetime
 import enum
+from decimal import Decimal
+from typing import Optional
 
 import oauthlib
 import requests_oauthlib
@@ -10,6 +12,22 @@ from . import exceptions
 _CLIENT_ID = "C95D19408B024BD4BEB42FA66F08BCEA"
 
 _BASE_URL = "https://api.greenmountainpower.com"
+
+
+@dataclasses.dataclass
+class AccountStatus:
+    accountNumber: Optional[str] = None
+    active: Optional[bool] = None
+    arrears: Optional[list[dict[str, str]]] = None
+    currentBalance: Optional[Decimal] = None
+    meterOff: Optional[bool] = None
+    partialMeterOff: Optional[bool] = None
+    pastDue30: Optional[bool] = None
+    pastDue30Balance: Optional[bool] = None
+    pastDue60: Optional[bool] = None
+    pastDue60Balance: Optional[bool] = None
+    payoffBalance: Optional[Decimal] = None
+    sonp: Optional[bool] = None
 
 
 @dataclasses.dataclass
@@ -82,3 +100,19 @@ class GreenMountainPowerApi:
             for value in interval["values"]
             for usage in Usage.try_parse_data(value)
         ]
+
+    def get_account_status(self):
+        response = self.session.get(
+            url=f"{_BASE_URL}/api/v2/accounts/{self.account_number}/status"
+        )
+        
+        if response.status_code == 400:
+            raise exceptions.BadRequestException(response.json()["message"])
+        if response.status_code == 401:
+            raise exceptions.UnauthorizedException(response.json()["message"])
+
+        if response.status_code / 200 == 1:
+            data = response.json()
+            return AccountStatus(**data)
+
+        raise exceptions.Error(response.json())
