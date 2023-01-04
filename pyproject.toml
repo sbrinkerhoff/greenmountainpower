@@ -21,7 +21,6 @@ coverage = "^7"
 black = "^22"
 pytest = "^7"
 isort = "^5"
-responses = "^0.22.0"
 mypy = "^0.991"
 
 
