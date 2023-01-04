@@ -6,6 +6,9 @@ authors = ["Kodey Converse <kodey@conve.rs>", "Stan Brinkerhoff <stan@vtwireless
 readme = "README.md"
 license = "MIT"
 homepage = "https://github.com/sbrinkerhoff/greenmountainpower/"
+include = [
+    "LICENSE",
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -13,11 +16,12 @@ requests = "^2"
 requests-oauthlib = "^1"
 oauthlib = "^3"
 
-[tool.poetry.group.dev.dependencies]
+[tool.poetry.dev-dependencies]
 coverage = "^7.0.2"
 black = "^22"
 pytest = "^7.2.0"
 
+
 [build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
