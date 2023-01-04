@@ -1,7 +1,27 @@
-[build-system]
-requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5", "wheel"]
-build-backend = "setuptools.build_meta"
+[tool.poetry]
+name = "greenmountainpower"
+version = "0.0.4"
+description = "This is an unofficial Python client that uses the undocumented API for Green Mountain Power accounts."
+authors = ["Kodey Converse <kodey@conve.rs>", "Stan Brinkerhoff <stan@vtwireless.com>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/sbrinkerhoff/greenmountainpower/"
+include = [
+    "LICENSE",
+]
 
-[tool.setuptools_scm]
-# See configuration details in https://github.com/pypa/setuptools_scm
-version_scheme = "no-guess-dev"
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "^2"
+requests-oauthlib = "^1"
+oauthlib = "^3"
+
+[tool.poetry.dev-dependencies]
+coverage = "^7.0.2"
+black = "^22"
+pytest = "^7.2.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
