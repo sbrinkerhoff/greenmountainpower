@@ -17,11 +17,15 @@ requests-oauthlib = "^1"
 oauthlib = "^3"
 
 [tool.poetry.dev-dependencies]
-coverage = "^7.0.2"
+coverage = "^7"
 black = "^22"
-pytest = "^7.2.0"
+pytest = "^7"
+isort = "^5"
+responses = "^0.22.0"
+mypy = "^0.991"
 
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
