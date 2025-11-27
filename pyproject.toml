@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "greenmountainpower"
-version = "0.0.5"
+version = "0.0.6"
 description = "This is an unofficial Python client that uses the undocumented API for Green Mountain Power accounts."
 authors = ["Kodey Converse <kodey@conve.rs>", "Stan Brinkerhoff <stan@vtwireless.com>"]
 readme = "README.md"
