@@ -1,6 +1,23 @@
 # Green Mountain Power
 
-This is an unofficial Python client that uses the undocumented API for Green Mountain Power accounts.
+This is an unofficial Python client that uses the undocumented API for [Green Mountain Power](https://greenmountainpower.com) accounts.  Green Mountain Power is a energy utility located in Vermont, USA.
+
+## Usage Data
+
+This client was written primarily to download usage (and generation) data from the Green Mountain Power API that powers the official [account dashboard](https://greenmountainpower.com/account/).  This data appears to be uploaded each morning at 4AM ET and contains the previous days data upto `4AM EST`.  The `4AM EST` time bucket appears in the dataset, but is incomplete.  It would appear the usage (and generation) data from the API should only be used for the previous days completed calendar days data and not expected to contain the current days data.
+
+```
+Current Date: 2025-12-23
+
+...
+ - Time: 2025-12-22T22:00:00, Usage: 0.24 KWH, Generation: None
+ - Time: 2025-12-22T23:00:00, Usage: 0.24 KWH, Generation: None
+ - Time: 2025-12-23T00:00:00, Usage: 0.2 KWH, Generation: None
+ - Time: 2025-12-23T01:00:00, Usage: 0.2 KWH, Generation: None
+ - Time: 2025-12-23T02:00:00, Usage: 0.19 KWH, Generation: None
+ - Time: 2025-12-23T03:00:00, Usage: 0.19 KWH, Generation: None
+ - Time: 2025-12-23T04:00:00, Usage: 0.04 KWH, Generation: None <<< incomplete data
+```
 
 ## Quickstart
 
